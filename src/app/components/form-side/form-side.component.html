@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <form [formGroup] = formValue>
+        <div class="form-group">
+          <label for="exampleInputfirstName">First Name</label>
+          <input type="text" formControlName="firstName" class="form-control my-2" id="exampleInputfirstName" aria-describedby="emailHelp" placeholder="First Name">
+          <span class="text-danger" *ngIf="requiredError('firstName')">Please Enter your First Name</span>
+      </div>
+        <div class="form-group">
+          <label for="exampleInputlastName">Last Name</label>
+          <input type="text" formControlName="lastName" class="form-control my-2" id="exampleInputlastName" placeholder="Last Name">
+          <span class="text-danger" *ngIf="requiredError('lastName')">Please Enter your Last Name</span>
+        </div>
+        <div class="form-group">
+            <label for="exampleEmail">Email</label>
+            <input type="email" formControlName="email" class="form-control my-2" id="exampleInputEmail" placeholder="Email">
+            <span class="text-danger" *ngIf="requiredError('email')">Please Enter your Email Address</span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPhone">Phone</label>
+            <input type="phone" formControlName="phone"class="form-control my-2" id="exampleInputPhone" placeholder="Phone">
+          <span class="text-danger" *ngIf="requiredError('phone')">Please Enter your Phone Number</span>
+          </div>
+       
+        <button [disabled]="this.formValue.invalid" type="button" class="btn btn-primary my-2" (click)="AddData()">Add User</button>
+      </form>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <app-counter [countOfUsers]="countOfUsers"></app-counter>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="AddDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Save Message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>New User Data has been added successfully</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  

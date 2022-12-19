@@ -1,0 +1,119 @@
+<div *ngIf="users"class="col-md-12">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone no</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        
+        <tr *ngFor="let userData of users; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{userData.firstName}}</td>
+            <td>{{userData.lastName}}</td>
+            <td>{{userData.email}}</td>
+            <td>{{userData.phone}}</td>
+            <td><button (click)="newModal()"type="button" class="btn" (click)="onEdit(userData)" >Edit <fa-icon [icon]="edit"></fa-icon></button></td>
+            <td><button (click)="openModal()"type="button" class="btn" (click)="usersToBeDeleted=userData" ><fa-icon [icon]="del"></fa-icon></button></td>
+            
+        </tr>
+    </table>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation Message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete {{usersToBeDeleted?.firstName}}'s data ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="DeleteData(usersToBeDeleted)">Yes! Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Deletion Message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{usersToBeDeleted?.firstName}}'s data has been deleted.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit User Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup] = formValue>
+            <div class="form-group">
+              <label for="exampleInputfirstName">First Name</label>
+              <input type="text" formControlName="firstName" class="form-control my-2" id="exampleInputfirstName" aria-describedby="emailHelp" placeholder="First Name">
+              <!-- <span class="text-danger" *ngIf="requiredError('firstName')">Please Enter your First Name</span> -->
+          </div>
+            <div class="form-group">
+              <label for="exampleInputlastName">Last Name</label>
+              <input type="text" formControlName="lastName" class="form-control my-2" id="exampleInputlastName" placeholder="Last Name">
+              <!-- <span class="text-danger" *ngIf="requiredError('lastName')">Please Enter your Last Name</span> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleEmail">Email</label>
+                <input type="email" formControlName="email" class="form-control my-2" id="exampleInputEmail" placeholder="Email">
+                <!-- <span class="text-danger" *ngIf="requiredError('email')">Please Enter your Email Address</span> -->
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPhone">Phone</label>
+                <input type="phone" formControlName="phone"class="form-control my-2" id="exampleInputPhone" placeholder="Phone">
+              <!-- <span class="text-danger" *ngIf="requiredError('phone')">Please Enter your Phone Number</span> -->
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="updateUserData()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updationMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Updation Message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>User Data Updated successfully</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

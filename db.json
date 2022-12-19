@@ -1,0 +1,50 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "Akshat",
+      "lastName": "Luthra",
+      "email": "akshatluthra981@gmail.com",
+      "phone": "9818227686"
+    },
+    {
+      "id": 3,
+      "firstName": "Roopam",
+      "lastName": "Gupta",
+      "email": "roopamgupta01@gmail.com",
+      "phone": "8814164464"
+    },
+    {
+      "id": 10,
+      "firstName": "Muskan",
+      "lastName": "Khanna",
+      "email": "Khanna.muskaan@gmail.com",
+      "phone": "9631145879"
+    },
+    {
+      "id": 11,
+      "firstName": "Rajat",
+      "lastName": "Shekhar",
+      "email": "shani.rajat@gmail.com",
+      "phone": "9789456123"
+    },
+    {
+      "id": 12,
+      "firstName": "Dinchak",
+      "lastName": "Sharma",
+      "email": "pooja.189dhinchak@gmail.com",
+      "phone": "8918925255"
+    },
+    {
+      "id": 13,
+      "firstName": "jayant",
+      "lastName": "verma",
+      "email": "sharma.jayant@gmail.com",
+      "phone": "9210456789"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
